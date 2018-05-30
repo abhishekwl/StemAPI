@@ -1,0 +1,25 @@
+{
+  "name": "stemapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('StemAPI Test Success')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekwl/StemAPI.git"
+  },
+  "keywords": [
+    "API",
+    "Node",
+    "Mongoose",
+    "Express"
+  ],
+  "author": "abhishekwl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishekwl/StemAPI/issues"
+  },
+  "homepage": "https://github.com/abhishekwl/StemAPI#readme"
+}
