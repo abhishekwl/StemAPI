@@ -17,7 +17,7 @@ exports.create = (req,res)=>{
 };
 
 exports.findAll = (req,res)=>{
-    Test.find({}, (err,data)=>sendData(err,data,res));
+    Test.find({}, null, { sort: { testName: 1 } }, (err,data)=>sendData(err,data,res));
     console.log("["+req.method+"] "+req.url);
 };
 
