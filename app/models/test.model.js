@@ -8,7 +8,8 @@ const testSchema = mongoose.Schema(
         hospitalUid: { type: String, required: true },
         testPrice: { type: Number, required: true },
         hospitalLatitude: { type: Number, required: true },
-        hospitalLongitude: { type: Number, required: true }
+        hospitalLongitude: { type: Number, required: true },
+        popularity: { type: Number, required: false, default: 0 }
     },
     {
         timestamps: true
