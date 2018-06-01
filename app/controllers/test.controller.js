@@ -17,7 +17,11 @@ exports.create = (req,res)=>{
 };
 
 exports.findAll = (req,res)=>{
-    Test.find({}, null, { sort: { testName: 1 } }, (err,data)=>sendData(err,data,res));
+    if(req.query.test && req.query.hospitalLatitude && req.query.hospitalLongitude) {
+
+    }
+    else if(req.query.test) Test.find({ testName: req.query.test }, (err,data)=>sendData(err,data,res));
+    else Test.find({}, (err,data)=>sendData(err,data,res));
     console.log("["+req.method+"] "+req.url);
 };
 
