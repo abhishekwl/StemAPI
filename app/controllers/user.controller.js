@@ -1,13 +1,13 @@
 const User = require("../models/user.model.js");
 
 exports.create = (req,res)=>{
-    if(req.query.userUid && req.body.userName && req.body.userAge && req.body.userGender && req.body.userBloodGroup) {
+    if(req.body.userUid && req.body.userName && req.body.userAge && req.body.userGender && req.body.userBloodGroup) {
         const user = new User({
             userName: req.body.userName,
             userAge: req.body.userAge,
             userGender: req.body.userGender,
             userBloodGroup: req.body.userBloodGroup,
-            userUid: req.query.userUid,
+            userUid: req.body.userUid,
             userMedicalHistory: req.body.userMedicalHistory? req.body.userMedicalHistory : "",
             userImageUrl: req.body.userImageUrl? req.body.userImageUrl: ""
         });
