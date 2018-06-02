@@ -3,13 +3,14 @@ const Test = require("../models/test.model.js");
 exports.create = (req,res)=>{
     if(req.body.hospitalUid && req.body.testName && req.body.hospitalName && req.body.testPrice && req.body.hospitalLatitude && req.body.hospitalLongitude) {
         const test = new Test({
-            testName: req.body.testName,
+            testName: req.body.testName.toString().toLowerCase(),
             hospitalName: req.body.hospitalName,
             hospitalImageUrl: req.body.hospitalImageUrl? req.body.hospitalImageUrl : "",
             hospitalUid: req.body.hospitalUid,
             testPrice: req.body.testPrice,
             hospitalLatitude: req.body.hospitalLatitude,
-            hospitalLongitude: req.body.hospitalLongitude
+            hospitalLongitude: req.body.hospitalLongitude,
+            hospitalDistrict: req.body.hospitalDistrict
         });
         test.save().then(data=>sendData(null,data,res)).catch(err=>sendData(err,null,res));
         console.log("["+req.method+"] "+req.url);
@@ -17,10 +18,9 @@ exports.create = (req,res)=>{
 };
 
 exports.findAll = (req,res)=>{
-    if(req.query.test && req.query.hospitalLatitude && req.query.hospitalLongitude) {
-
-    }
-    else if(req.query.test) Test.find({ testName: req.query.test }, (err,data)=>sendData(err,data,res));
+    if(req.query.test && req.query.hospitalDistrict) Test.find({ testName: req.query.test, hospitalDistrict: req.query.hospitalDistrict }, (err,data)=>sendData(err,data,res));
+    else if(req.query.test) Test.find({ testName: req.query.test.toString() }, (err,data)=>sendData(err,data,res));
+    else if(req.query.popular && req.query.popular==1 && req.query.hospitalDistrict) Test.find({ hospitalDistrict: req.query.hospitalDistrict.toString() }).sort({ popularity: "descending" }).exec((err,data)=>sendData(err,data,res));
     else Test.find({}, (err,data)=>sendData(err,data,res));
     console.log("["+req.method+"] "+req.url);
 };

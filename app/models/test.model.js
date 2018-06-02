@@ -9,7 +9,8 @@ const testSchema = mongoose.Schema(
         testPrice: { type: Number, required: true },
         hospitalLatitude: { type: Number, required: true },
         hospitalLongitude: { type: Number, required: true },
-        popularity: { type: Number, required: false, default: 0 }
+        popularity: { type: Number, required: false, default: 0 },
+        hospitalDistrict: { type: String, required: true }
     },
     {
         timestamps: true
