@@ -1,7 +1,7 @@
 const User = require("../models/user.model.js");
 
 exports.create = (req,res)=>{
-    if(req.body.userUid && req.body.userName && req.body.userAge && req.body.userGender && req.body.userBloodGroup) {
+    if(req.body.userUid && req.body.userName && req.body.userAge && req.body.userGender && req.body.userBloodGroup && req.body.userEmailId && req.body.userContactNumber) {
         const user = new User({
             userName: req.body.userName,
             userAge: req.body.userAge,
@@ -9,7 +9,9 @@ exports.create = (req,res)=>{
             userBloodGroup: req.body.userBloodGroup,
             userUid: req.body.userUid,
             userMedicalHistory: req.body.userMedicalHistory? req.body.userMedicalHistory : "",
-            userImageUrl: req.body.userImageUrl? req.body.userImageUrl: ""
+            userImageUrl: req.body.userImageUrl? req.body.userImageUrl: "",
+            userEmailId: req.body.userEmailId,
+            userContactNumber: req.body.userContactNumber
         });
         user.save().then(data=>sendData(null,data,res)).catch(err=>sendData(err,null,res));
         console.log("["+req.method+"] "+req.url);

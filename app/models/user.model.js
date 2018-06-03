@@ -8,7 +8,9 @@ const userSchema = mongoose.Schema(
         userBloodGroup: { type: String, required: true },
         userMedicalHistory: { type: String, required: false, default: "" },
         userImageUrl: { type: String, required: false, default: "" },
-        userUid: { type: String, required: true }
+        userUid: { type: String, required: true },
+        userEmailId: { type: String, required: true },
+        userContactNumber: { type: String, required: true }
     },
     {
         timestamps: true
