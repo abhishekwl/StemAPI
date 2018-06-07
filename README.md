@@ -6,15 +6,12 @@ Stem Backend API
 <br>
 <br>
 <b>USERS:</b>
-<br>
 1) CREATE USER ---> [POST] /users
 2) GET USER ---> [GET] /users/<USER_UID>
 3) UPDATE USER ---> [PUT] /users/<USER_UID>
 4) DELETE USER ---> [DELETE] /users/<USER_UID>
 
-<br>
 <b>TESTS:</b>
-<br>
 1) CREATE TEST ---> [POST] /tests
 2) GET ALL TESTS ---->
     <br>a> [GET] /tests?test=<TEST_NAME>&hospitalDistrict=<CITY_NAME>
