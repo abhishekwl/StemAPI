@@ -20,7 +20,7 @@ exports.create = (req,res)=>{
 exports.findAll = (req,res)=>{
     if(req.query.test && req.query.hospitalDistrict) Test.find({ testName: req.query.test, hospitalDistrict: req.query.hospitalDistrict }, (err,data)=>sendData(err,data,res));
     else if(req.query.test) Test.find({ testName: req.query.test.toString() }, (err,data)=>sendData(err,data,res));
-    else if(req.query.popular && req.query.popular==1 && req.query.hospitalDistrict) Test.find({ hospitalDistrict: req.query.hospitalDistrict.toString() }).sort({ popularity: "descending" }).exec((err,data)=>sendData(err,data,res));
+    else if(req.query.popular && req.query.popular==1 && req.query.hospitalDistrict) Test.find({ hospitalDistrict: req.query.hospitalDistrict.toString() }).limit(10).sort({ popularity: "descending" }).exec((err,data)=>sendData(err,data,res));
     else Test.find({}, (err,data)=>sendData(err,data,res));
     console.log("["+req.method+"] "+req.url);
 };
