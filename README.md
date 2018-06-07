@@ -1,4 +1,4 @@
-Stem Backend API
+<h1>Stem Backend API</h1>
 
 <b>Routes</b>
 
