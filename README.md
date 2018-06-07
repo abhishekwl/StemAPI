@@ -4,7 +4,9 @@ Stem Backend API
 
 <u>BASE_URL = /api/v1</u>
 <br>
+<br>
 <b>USERS:</b>
+<br>
 1) CREATE USER ---> [POST] /users
 2) GET USER ---> [GET] /users/<USER_UID>
 3) UPDATE USER ---> [PUT] /users/<USER_UID>
@@ -12,6 +14,7 @@ Stem Backend API
 
 <br>
 <b>TESTS:</b>
+<br>
 1) CREATE TEST ---> [POST] /tests
 2) GET ALL TESTS ---->
     <br>a> [GET] /tests?test=<TEST_NAME>&hospitalDistrict=<CITY_NAME>
