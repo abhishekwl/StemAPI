@@ -13,10 +13,10 @@ Stem Backend API
 <b>TESTS:</b>
 1) CREATE TEST ---> [POST] /tests
 2) GET ALL TESTS ---->
-    a> [GET] /tests?test=<testName>&hospitalDistrict=<cityName>
-    b> [GET] /tests?test=<testName>
-    c> [GET] /tests?popular=1&hospitalDistrict=<cityName>
-    d> [GET] /tests
+    <br>a> [GET] /tests?test=<testName>&hospitalDistrict=<cityName>
+    <br>b> [GET] /tests?test=<testName>
+    <br>c> [GET] /tests?popular=1&hospitalDistrict=<cityName>
+    <br>d> [GET] /tests
 3) RETRIEVE SPECIFIC TEST --> /tests/<testId>
 4) UPDATE TEST ---> /tests/<testId>
 5) DELETE ---> /tests/<testId>
