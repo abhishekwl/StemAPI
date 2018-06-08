@@ -17,6 +17,21 @@ exports.create = (req,res)=>{
     } else sendData("Missing query parameters", null, res);
 };
 
+exports.findAll = (req,res)=>{
+    if(req.query.uid) {
+        User.findOne({ userUid: req.query.uid }, (err,data)=>{
+            if(err) {
+                console.log("[ERROR] "+req.method+" - "+req.url+" : UID does not exist.");
+                sendData(err,data,res);
+            }
+            else {
+                console.log("["+req.method+"] "+req.url);
+                Order.find({ uid: req.query.uid }, (err,data)=>sendData(err,data));
+            }
+        });
+    } else sendData("Missing Query Parameter <uid>",null,res);
+};
+
 
 function sendData(err,data,res) {
     if(err) {
