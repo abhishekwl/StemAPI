@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 mongoose.Promise = global.Promise;
 mongoose.connect(config.dbUri).then(()=>{
     console.log("[MONGODB] Server sucessfully hooked to DB");
-    console.log("[/DEBUG]")
+    console.log("[/DEBUG]");
     console.log("-----------------------------------------------------------------");
 }).catch(err=>{
     console.log("[MONGODB] Could not connect to database. ERR: "+err);
